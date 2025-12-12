@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NOYA — Moonlight Accessories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet">
+  <meta name="description"
+    content="NOYA — Gece zarafeti ve ay ışığından ilham alan gençlere özel aksesuar koleksiyonu." />
+  <style>
+    :root {
+      --bg: #0A1A2F;
+      /* Gece Laciverti */
+      --muted: #DDE2E6;
+      /* Ay Işığı Gümüşü */
+      --accent: #F8D67A;
+      /* Pastel Altın */
+      --pastel: #C9A7E5;
+      /* Soft Lavanta */
+      --white: #ffffff;
+      --card: #0f2233;
+      --glass: rgba(221, 226, 230, 0.06);
+      --radius: 14px;
+      --trans: 300ms cubic-bezier(.2, .9, .3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, rgba(10, 26, 47, 1) 0%, rgba(6, 12, 20, 1) 100%);
+      color: var(--muted);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.45;
+    }
+
+    /* NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: linear-gradient(90deg, rgba(10, 26, 47, 0.95), rgba(10, 26, 47, 0.6));
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(248, 214, 122, 0.06);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .brand .logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--pastel));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg);
+      font-weight: 800;
+      font-family: 'Playfair Display';
+      font-size: 18px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45)
+    }
+
+    .brand .title {
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2px
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: var(--trans)
+    }
+
+    .nav-links a:hover {
+      background: rgba(221, 226, 230, 0.03);
+      color: var(--white)
+    }
+
+    .cta {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 700
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 40px;
+      align-items: center;
+      padding: 80px 0
+    }
+
+    .hero-left h1 {
+      font-family: 'Playfair Display';
+      font-size: 48px;
+      color: var(--accent);
+      line-height: 1.02;
+      margin-bottom: 14px
+    }
+
+    .hero-left p {
+      color: rgba(221, 226, 230, 0.9);
+      font-size: 18px;
+      margin-bottom: 22px
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 700;
+      transition: var(--trans)
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg)
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(221, 226, 230, 0.06);
+      color: var(--muted)
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-radius: 18px;
+      padding: 16px;
+      border: 1px solid rgba(248, 214, 122, 0.06);
+      box-shadow: 0 8px 30px rgba(7, 12, 20, 0.6)
+    }
+
+    .product-sample {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px
+    }
+
+    .product-sample img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 0
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 26px
+    }
+
+    .section-title h2 {
+      color: var(--accent);
+      font-size: 28px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px
+    }
+
+    .product {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      transition: transform var(--trans), box-shadow var(--trans);
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6)
+    }
+
+    .product img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 10px
+    }
+
+    .product h3 {
+      color: var(--accent);
+      margin-top: 12px
+    }
+
+    .product p {
+      color: rgba(221, 226, 230, 0.8);
+      margin-top: 8px
+    }
+
+    .price {
+      margin-top: 12px;
+      font-weight: 800
+    }
+
+    /* ABOUT */
+    .about {
+      display: flex;
+      gap: 28px;
+      align-items: center
+    }
+
+    .about .text {
+      flex: 1
+    }
+
+    .about img {
+      width: 420px;
+      border-radius: 14px;
+      object-fit: cover
+    }
+
+    /* BLOG */
+    .post {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01));
+      padding: 16px;
+      border-radius: 12px
+    }
+
+    .post img {
+      width: 120px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px
+    }
+
+    /* CONTACT */
+    .contact-form {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--glass);
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.03)
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 12px
+    }
+
+    input,
+    textarea,
+    select {
+      background: transparent;
+      border: 1px solid rgba(221, 226, 230, 0.06);
+      padding: 12px;
+      border-radius: 10px;
+      color: var(--muted)
+    }
+
+    textarea {
+      min-height: 140px
+    }
+
+    /* CART */
+    .cart-toggle {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: var(--accent);
+      color: var(--bg);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      cursor: pointer
+    }
+
+    .cart-drawer {
+      position: fixed;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 380px;
+      background: linear-gradient(180deg, var(--card), #08111a);
+      box-shadow: -20px 0 60px rgba(2, 6, 10, 0.6);
+      transform: translateX(110%);
+      transition: transform var(--trans);
+      padding: 20px;
+      z-index: 120
+    }
+
+    .cart-drawer.open {
+      transform: translateX(0)
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px
+    }
+
+    .cart-item img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 8px
+    }
+
+    .cart-summary {
+      margin-top: 18px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.04);
+      padding-top: 12px
+    }
+
+    /* PRODUCT DETAIL */
+    .product-detail {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start
+    }
+
+    .detail-gallery {
+      flex: 1
+    }
+
+    .detail-info {
+      flex: 1
+    }
+
+    .thumbs {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px
+    }
+
+    .thumbs img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent
+    }
+
+    .thumbs img.active {
+      border-color: var(--accent)
+    }
+
+    /* CHECKOUT */
+    .checkout {
+      max-width: 900px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.03)
+    }
+
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 18px
+    }
+
+    .order-item {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid rgba(248, 214, 122, 0.04);
+      margin-top: 40px
+    }
+
+    footer .foot-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px
+    }
+
+    /* responsive */
+    @media (max-width:1000px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .product img {
+        height: 200px
+      }
+
+      .about {
+        flex-direction: column
+      }
+
+      .cart-drawer {
+        width: 100%;
+      }
+    }
+
+    @media (max-width:640px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      nav .nav-links {
+        display: none
+      }
+
+      .brand .title {
+        display: none
+      }
+
+      .hero-left h1 {
+        font-size: 34px
+      }
+
+      .checkout-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* small animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(8px);
+      animation: fadeUp .7s forwards
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      height: 40px;
+      /* Adjust the size as needed */
+      width: auto;
+      display: block;
+    }
+
+    /* Update the existing .brand .title styles if needed */
+    .brand .title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--muted);
+    }
+
+    /* Add this to make the navigation more organized */
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo">N</div>
+          <div class="title">NOYA</div>
+        </div>
+        <div class="nav-links">
+          <a href="#home">Ana Sayfa</a>
+          <a href="#shop">Mağaza</a>
+          <a href="#collections">Koleksiyon</a>
+          <a href="#about">Hakkımızda</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">İletişim</a>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center">
+          <a class="cta" href="#shop">Keşfet</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-left fade-up">
+        <h1>Moonlight Collection</h1>
+        <p>Gece zarafeti ve ay ışığının büyüsünden ilham alan NOYA aksesuarlarıyla stilinizi yükseltin. Doğal dokular,
+          yumuşak tonlar ve modern çizgiler bir arada.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="location.hash='shop'">Yeni Gelenler</button>
+          <button class="btn btn-ghost" onclick="location.hash='collections'">Koleksiyonu Gör</button>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <div>
+              <div style="font-weight:700;color:var(--accent)">Öne Çıkan</div>
+              <div style="color:rgba(221,226,230,0.8);font-size:13px">Sezonun favorileri</div>
+            </div>
+            <div style="font-weight:800;color:var(--muted)">%20 İndirim</div>
+          </div>
+          <div class="product-sample">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="necklace" />
+            <img
+              src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJyYWNlbGV0fGVufDB8fDB8fHww"
+              alt="bracelet" />
+            <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad" alt="earrings" />
+            <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6" alt="ring" />
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <div style="font-size:13px;color:var(--muted)">Bültenimize Katıl</div>
+            <div style="font-weight:700;color:var(--accent)">Yeni koleksiyonlar ilk siz öğrenin</div>
+          </div>
+          <button class="btn btn-primary">Kaydol</button>
+        </div>
+      </aside>
+    </section>
+
+    <section id="shop">
+      <div class="section-title">
+        <h2>Mağaza</h2>
+      </div>
+      <div class="grid" id="productGrid">
+        <!-- Product cards injected by JS -->
+      </div>
+    </section>
+
+    <section id="collections">
+      <div class="section-title">
+        <h2>Koleksiyonlar</h2>
+      </div>
+
+      <div class="grid">
+        <div class="product">
+          <img
+            src="kullanilanfotograflar/lucid-origin_Moonlight_Elegance_Set_Necklace_earrings_and_hair_clip_combination._Colors_Silve-0.jpg"
+            alt="moonlight collection" />
+          <h3>Moonlight</h3>
+          <p>Gece parlaklığından ilham alan minimal formlar.</p>
+        </div>
+
+        <div class="product">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1678834778658-9862d9987dd3?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmluZ3xlbnwwfHwwfHx8MA%3D%3D"
+            alt="solara collection" />
+          <h3>Solara</h3>
+          <p>Güneşin sıcak tonlarını taşıyan enerji dolu parçalar.</p>
+        </div>
+
+        <div class="product">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="lavender collection" />
+          <h3>Lavender Dusk</h3>
+          <p>Pastel lavanta ve yumuşak dokular, romantik kombinler için.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Detail Section (dynamic) -->
+    <section id="productDetail" style="display:none;padding:40px 0">
+      <div class="section-title">
+        <h2>Ürün Detayı</h2>
+      </div>
+      <div class="product-detail" id="detailContainer">
+        <!-- injected by JS -->
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-title">
+        <h2>Hakkımızda</h2>
+      </div>
+      <div class="about">
+        <div class="text">
+          <h3 style="color:var(--accent)">NOYA — Geceyle Parlayan Tasarımlar</h3>
+          <p style="margin-top:12px;color:rgba(221,226,230,0.9)">NOYA, ay ışığı ve gece enerjisinden ilham alan,
+            gençlerin günlük stilini yumuşak ama dikkat çekici detaylarla güçlendiren bir aksesuar markasıdır. Her
+            parça, özenle seçilmiş malzemeler ve modern tasarım anlayışı ile hazırlanır. Amacımız; doğal, sürdürülebilir
+            ve estetik ürünlerle gençlerin kendini daha iyi hissetmesini sağlamak.</p>
+
+          <ul style="margin-top:12px;color:rgba(221,226,230,0.85);list-style:disc;padding-left:18px">
+            <li>El işçiliği hissi veren tasarımlar</li>
+            <li>Doğal ve geri dönüştürülebilir ambalaj</li>
+            <li>Her mevsime uygun, modüler aksesuarlar</li>
+          </ul>
+        </div>
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f" alt="about image" />
+      </div>
+    </section>
+
+    <section id="blog">
+      <div class="section-title">
+        <h2>Blog & İlham</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+        <article class="post">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f" alt="post" />
+          <div>
+            <h4 style="color:var(--accent)">Ay Işığı ile Kombin Önerileri</h4>
+            <p style="color:rgba(221,226,230,0.85);font-size:14px">Basit aksesuar seçimleriyle gece kombinlerinize nasıl
+              parlaklık katacağınızı anlatıyoruz.</p>
+          </div>
+        </article>
+
+        <article class="post">
+          <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a" alt="post2" />
+          <div>
+            <h4 style="color:var(--accent)">Sürdürülebilir Ambalajımız</h4>
+            <p style="color:rgba(221,226,230,0.85);font-size:14px">NOYA'nın geri dönüştürülebilir ambalaj yaklaşımını ve
+              üretim etiklerini keşfedin.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>İletişim</h2>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="field"><label for="name">İsim</label><input id="name" placeholder="Adınız" required></div>
+          <div class="field"><label for="email">E-posta</label><input id="email" type="email"
+              placeholder="E-posta adresiniz" required></div>
+          <div class="field"><label for="message">Mesaj</label><textarea id="message"
+              placeholder="Mesajınız"></textarea></div>
+          <div style="display:flex;gap:12px;justify-content:flex-end"><button type="reset" class="btn"
+              style="background:transparent;border:1px solid rgba(221,226,230,0.06);color:var(--muted)">Temizle</button><button
+              class="btn btn-primary" type="submit">Gönder</button></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Checkout mock page -->
+    <section id="checkout" style="display:none;padding:40px 0">
+      <div class="section-title">
+        <h2>Ödeme</h2>
+      </div>
+      <div class="checkout">
+        <div class="checkout-grid">
+          <div>
+            <h4 style="color:var(--accent)">İletişim ve Teslimat Bilgileri</h4>
+            <div style="margin-top:12px">
+              <div class="field"><label>İsim</label><input id="c_name"></div>
+              <div class="field"><label>E-posta</label><input id="c_email"></div>
+              <div class="field"><label>Adres</label><input id="c_address"></div>
+              <div class="field"><label>Not</label><textarea id="c_note"></textarea></div>
+            </div>
+          </div>
+          <aside>
+            <h4 style="color:var(--accent)">Sipariş Özeti</h4>
+            <div id="orderSummary"></div>
+            <div style="margin-top:12px;display:flex;gap:12px;justify-content:flex-end"><button class="btn btn-ghost"
+                onclick="location.hash='shop'">Alışverişe Dön</button><button class="btn btn-primary"
+                onclick="placeOrder()">Ödeme Yap</button></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="cart-toggle" id="cartToggle" title="Sepet"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="1.5">
+      <path d="M6 6h15l-1.6 8.4A2 2 0 0 1 17.5 17H8.5a2 2 0 0 1-2-1.6L5 3H2" stroke="currentColor"
+        stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <h3 style="color:var(--accent)">Sepet</h3>
+    <div id="cartItems" style="margin-top:12px">
+      <!-- items injected by JS -->
+    </div>
+    <div class="cart-summary">
+      <div style="display:flex;justify-content:space-between"><strong>Ara Toplam</strong><strong
+          id="subTotal">₺0</strong></div>
+      <div style="margin-top:8px;display:flex;justify-content:space-between"><span>Kargo</span><span
+          id="shipping">₺20</span></div>
+      <div style="margin-top:8px;display:flex;justify-content:space-between;font-weight:800"><span>Toplam</span><span
+          id="totalPrice">₺0</span></div>
+      <div style="margin-top:12px;display:flex;gap:12px;justify-content:space-between"><button class="btn btn-ghost"
+          onclick="clearCart()">Sepeti Temizle</button><button class="btn btn-primary"
+          onclick="location.hash='checkout'">Ödeme</button></div>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <div style="font-weight:800;color:var(--accent);font-size:18px">NOYA</div>
+          <div style="color:rgba(221,226,230,0.8);margin-top:6px">Ay ışığından ilham alan tasarımlar — © 2025</div>
+        </div>
+        <div style="display:flex;gap:18px;align-items:center">
+          <a href="#" style="color:var(--muted);text-decoration:none">Instagram</a>
+          <a href="#" style="color:var(--muted);text-decoration:none">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Product data (can be replaced with real data or API)
+    const products = [
+      {
+        id: 1, title: 'Lunar Glow Necklace', price: 249, imgs: [
+          'kullanilanfotograflar/lucid-origin_Minimal_heart-shaped_silver_pendant_with_a_smooth_polished_surface_and_delicate_-0.jpg',
+          'kullanilanfotograflar/lucid-origin_Minimal_heart-shaped_silver_pendant_with_a_smooth_polished_surface_and_delicate_-0.jpg'
+        ], desc: 'Ince zincir üzeri ay taşlı zarif kolye. Günlük ve gece kombinleri için ideal.'
+      },
+      {
+        id: 2, title: 'Moonlight Bracelet', price: 179, imgs: [
+          'kullanilanfotograflar/lucid-origin_Silver_Chain_Bracelet_A_simple_yet_elegant_design_with_a_thick_chain._Color_Moon-0.jpg',
+          'kullanilanfotograflar/lucid-origin_Silver_Chain_Bracelet_A_simple_yet_elegant_design_with_a_thick_chain._Color_Moon-0.jpg'
+        ], desc: 'Doğal mineral taşlarla bezenmiş, el yapımı his veren bileklik.'
+      },
+      {
+        id: 3, title: 'Nightfall Earrings', price: 139, imgs: [
+          'kullanilanfotograflar/lucid-origin_Gold_Wave_Earrings_Paste_gold_earrings_in_a_wave_shape._Background_Navy_Blue_plu-0.jpg',
+          'kullanilanfotograflar/lucid-origin_Gold_Wave_Earrings_Paste_gold_earrings_in_a_wave_shape._Background_Navy_Blue_plu-0.jpg'
+        ], desc: 'Gece ışığını yansıtan minimal halka küpeler.'
+      },
+      {
+        id: 4, title: 'Solara Ring', price: 199, imgs: [
+          'kullanilanfotograflar/lucid-origin_Seashell_Pendant_Silver_shell-shaped_pendant._Color_Moonlight_Silver_plus_White.-0.jpg',
+          'kullanilanfotograflar/lucid-origin_Seashell_Pendant_Silver_shell-shaped_pendant._Color_Moonlight_Silver_plus_White.-0.jpg'
+        ], desc: 'Pastel altın kaplama yüzük. Her kombine sıcaklık katar.'
+      },
+      {
+        id: 5, title: 'Lavender Pendant', price: 159, imgs: [
+          'kullanilanfotograflar/lucid-origin_Lavender_Light_Necklace_Heart_shape_with_soft_lavender_stones._Background_Pastel-0.jpg',
+          'kullanilanfotograflar/lucid-origin_Lavender_Light_Necklace_Heart_shape_with_soft_lavender_stones._Background_Pastel-0.jpg'
+        ], desc: 'Lavanta tonlarında emaye işçiliği ile zarif kolye.'
+      },
+      {
+        id: 6, title: 'Moon Duo Set', price: 349, imgs: [
+          'kullanilanfotograflar/lucid-origin_Moonlight_Elegance_Set_Necklace_earrings_and_hair_clip_combination._Colors_Silve-0.jpg',
+          'kullanilanfotograflar/lucid-origin_Moonlight_Elegance_Set_Necklace_earrings_and_hair_clip_combination._Colors_Silve-0.jpg'
+        ], desc: 'Küpe + kolye seti; sevdiklerinize hediye etmek için ideal.'
+      }
+    ];
+
+    // Cart state
+    let cart = JSON.parse(localStorage.getItem('noya_cart') || '[]');
+
+    function formatPrice(n) { return '₺' + n }
+
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+      products.forEach(p => {
+        const el = document.createElement('article'); el.className = 'product fade-up';
+        el.innerHTML = `
+          <img src="${p.imgs[0]}" alt="${p.title}" />
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+          <div class="price">${formatPrice(p.price)}</div>
+          <div style="display:flex;gap:10px;margin-top:12px">
+            <button class="btn btn-ghost" onclick="openProduct(${p.id})">Detay</button>
+            <button class="btn btn-primary" onclick="addToCart(${p.id})">Sepete Ekle</button>
+          </div>
+        `;
+        grid.appendChild(el);
+      });
+    }
+
+    function openProduct(id) {
+      const p = products.find(x => x.id === id);
+      const detail = document.getElementById('detailContainer');
+      document.getElementById('productDetail').style.display = 'block';
+      document.getElementById('checkout').style.display = 'none';
+      detail.innerHTML = `
+        <div class="detail-gallery">
+          <img id="mainImg" src="${p.imgs[0]}" style="width:100%;border-radius:12px;height:480px;object-fit:cover" />
+          <div class="thumbs">
+            ${p.imgs.map((s, idx) => `<img src="${s}" onclick="selectThumb(this)" class="${idx === 0 ? 'active' : ''}"/>`).join('')}
+          </div>
+        </div>
+        <div class="detail-info">
+          <h2 style="color:var(--accent)">${p.title}</h2>
+          <p style="margin-top:8px;color:rgba(221,226,230,0.9)">${p.desc}</p>
+          <div style="font-weight:800;margin-top:12px">${formatPrice(p.price)}</div>
+          <div style="margin-top:16px;display:flex;gap:12px">
+            <button class="btn btn-primary" onclick="addToCart(${p.id})">Sepete Ekle</button>
+            <button class="btn btn-ghost" onclick="location.hash='shop'">Geri</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('productDetail').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function selectThumb(img) {
+      document.querySelectorAll('.thumbs img').forEach(i => i.classList.remove('active'));
+      img.classList.add('active');
+      document.getElementById('mainImg').src = img.src;
+    }
+
+    // Cart functions
+    function saveCart() { localStorage.setItem('noya_cart', JSON.stringify(cart)); renderCart(); }
+    function addToCart(id) {
+      const p = products.find(x => x.id === id);
+      const item = cart.find(i => i.id === id);
+      if (item) { item.qty += 1 } else { cart.push({ id: p.id, title: p.title, price: p.price, img: p.imgs[0], qty: 1 }) }
+      saveCart();
+      toggleCart(true);
+    }
+    function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); }
+    function clearCart() { cart = []; saveCart(); }
+    function renderCart() {
+      const container = document.getElementById('cartItems');
+      container.innerHTML = '';
+      let sub = 0;
+      cart.forEach(i => {
+        sub += i.price * i.qty;
+        const div = document.createElement('div'); div.className = 'cart-item';
+        div.innerHTML = `<img src="${i.img}"/><div style="flex:1"><strong>${i.title}</strong><div style="color:rgba(221,226,230,0.8);font-size:13px">${formatPrice(i.price)} x ${i.qty}</div></div><div style="text-align:right"><button class="btn btn-ghost" onclick="decrease(${i.id})">-</button><div style="height:6px"></div><button class="btn btn-ghost" onclick="increase(${i.id})">+</button><div style="height:6px"></div><button class="btn btn-ghost" onclick="removeFromCart(${i.id})">Sil</button></div>`;
+        container.appendChild(div);
+      });
+      document.getElementById('subTotal').innerText = formatPrice(sub);
+      const shipping = cart.length ? 20 : 0;
+      document.getElementById('shipping').innerText = formatPrice(shipping);
+      document.getElementById('totalPrice').innerText = formatPrice(sub + shipping);
+
+      // Order summary for checkout
+      const order = document.getElementById('orderSummary');
+      if (order) {
+        if (cart.length === 0) order.innerHTML = '<div>Sepetiniz boş.</div>';
+        else order.innerHTML = cart.map(i => `<div class="order-item"><img src="${i.img}" style="width:56px;height:56px;border-radius:8px"/><div style="flex:1"><strong>${i.title}</strong><div style="font-size:13px;color:rgba(221,226,230,0.8)">${i.qty} x ${formatPrice(i.price)}</div></div><div style="font-weight:800">${formatPrice(i.qty * i.price)}</div></div>`).join('') + `<div style="margin-top:12px;display:flex;justify-content:space-between"><strong>Toplam</strong><strong>${formatPrice(sub + (shipping))}</strong></div>`;
+      }
+    }
+    function increase(id) { const it = cart.find(i => i.id === id); if (it) { it.qty++; saveCart(); } }
+    function decrease(id) { const it = cart.find(i => i.id === id); if (it) { it.qty--; if (it.qty <= 0) removeFromCart(id); else saveCart(); } }
+
+    // Drawer
+    const cartDrawerEl = document.getElementById('cartDrawer');
+    function toggleCart(open) {
+      if (open === undefined) cartDrawerEl.classList.toggle('open');
+      else cartDrawerEl.classList.toggle('open', !!open);
+      renderCart();
+    }
+    document.getElementById('cartToggle').addEventListener('click', () => toggleCart());
+
+    // Checkout mock
+    function placeOrder() {
+      if (cart.length === 0) { alert('Sepetiniz boş!'); return }
+      const name = document.getElementById('c_name').value || 'Müşteri';
+      // Mock order placement
+      localStorage.removeItem('noya_cart'); cart = []; renderCart(); toggleCart(false);
+      alert('Teşekkürler ' + name + '! Siparişiniz alındı. (Bu bir demo ödeme sayfasıdır)');
+      location.hash = 'shop';
+    }
+
+    // Contact form
+    document.getElementById('contactForm').addEventListener('submit', function (e) { e.preventDefault(); alert('Mesajınız alındı — teşekkürler!'); this.reset(); });
+
+    // Init
+    renderProducts(); renderCart();
+
+    // Simple fade-up on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('fade-up'); observer.unobserve(e.target) } })
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.product').forEach(el => observer.observe(el));
+
+    // Hash routing for product detail
+    window.addEventListener('hashchange', () => { const h = location.hash.replace('#', ''); if (h === 'checkout') { document.getElementById('checkout').style.display = 'block'; document.getElementById('productDetail').style.display = 'none' } else if (h.startsWith('product-')) { const id = parseInt(h.split('-')[1]); openProduct(id) } else { document.getElementById('productDetail').style.display = 'none'; document.getElementById('checkout').style.display = 'none' } });
+  </script>
+</body>
+
+</html>
